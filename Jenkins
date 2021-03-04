@@ -1,0 +1,58 @@
+pipeline {
+  agent any
+ 
+    }
+  stages {
+    stage ('Build') {
+      steps {
+     eccho " build generated"
+      }
+    }
+    stage ('Code Quality') {
+      steps {
+       echo'quality check completed'
+        }
+      }
+    }
+    stage ('JaCoCo') {
+      steps {
+     
+    stage ('Nexus Upload') {
+      steps {
+      echo " upload completed'
+      }
+    }
+    stage ('DEV Deploy') {
+      steps {
+      echo "deploying to DEV Env "
+          }
+    }
+    stage ('Slack Notification') {
+      steps {
+        echo "deployed to DEV Env successfully"
+            }
+    stage ('DEV Approve') {
+      steps {
+      echo "Taking approval from DEV Manager for QA Deployment"
+      
+      }
+    }
+     stage ('QA Deploy') {
+      steps {
+        echo "deploying to QA Env "
+        
+    }
+    stage ('QA Approve') {
+      steps {
+        echo "Taking approval from QA manager"
+       
+      }
+    }
+    stage ('Slack Notification for QA Deploy') {
+      steps {
+        echo "deployed to QA Env successfully"
+             }
+    }  
+  }
+}
+
